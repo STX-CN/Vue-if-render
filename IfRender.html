@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="GB2312">
+    <title>bind class</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <!-- <script src="../vue.js"></script> -->
+</head>
+
+<body>
+    <div id="root">
+        <button @click="clickA">A</button>
+        <button @click="clickB">B</button>
+        <button @click="clickC">C</button>
+        <button @click="clickD">D</button>
+
+        <div v-if="type === 'A'">
+            A
+        </div>
+        <div v-else-if="type === 'B'">
+            B
+        </div>
+        <div v-else-if="type === 'C'">
+            C
+        </div>
+        <div v-else>
+            Not A/B/C
+        </div>
+    </div>
+    <script>
+        new Vue({
+            el: "#root",
+            data: {
+                type: 'A'
+            },
+            methods: {
+                clickA: function() {
+                    this.type = 'A';
+                },
+                clickB: function() {
+                    this.type = 'B';
+                },
+                clickC: function() {
+                    this.type = 'C';
+                },
+                clickD: function() {
+                    this.type = 'D';
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
