@@ -10,45 +10,37 @@
 
 <body>
     <div id="root">
-        <button @click="clickA">A</button>
-        <button @click="clickB">B</button>
-        <button @click="clickC">C</button>
-        <button @click="clickD">D</button>
-
-        <div v-if="type === 'A'">
-            A
-        </div>
-        <div v-else-if="type === 'B'">
-            B
-        </div>
-        <div v-else-if="type === 'C'">
-            C
+        <div v-if="loginType==='userName'">
+            <label>UserName</label>
+            <input placeholder="Enter your name">
         </div>
         <div v-else>
-            Not A/B/C
+            <label>Email</label>
+            <input placeholder="Enter your email address">
         </div>
+        <button @click="toggleLogin">ToggleLogin</button>
     </div>
     <script>
-        new Vue({
-            el: "#root",
-            data: {
-                type: 'A'
-            },
-            methods: {
-                clickA: function() {
-                    this.type = 'A';
-                },
-                clickB: function() {
-                    this.type = 'B';
-                },
-                clickC: function() {
-                    this.type = 'C';
-                },
-                clickD: function() {
-                    this.type = 'D';
+        Vue.component(
+                'login-window', {
+                    props: ['name', 'password'],
+                    template: '<li @click="handClickDelete">{{content}}</li>',
+                    methods: {
+
+                    }
                 }
-            }
-        })
+            ),
+            new Vue({
+                el: "#root",
+                data: {
+                    loginType: 'userName'
+                },
+                methods: {
+                    toggleLogin: function() {
+                        this.loginType = (this.loginType === 'userName') ? 'emailLogin' : 'userName';
+                    }
+                }
+            })
     </script>
 </body>
 
