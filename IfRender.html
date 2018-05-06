@@ -12,11 +12,11 @@
     <div id="root">
         <div v-if="loginType==='userName'">
             <label>UserName</label>
-            <input placeholder="Enter your name">
+            <input placeholder="Enter your name" key="username-input">
         </div>
         <div v-else>
             <label>Email</label>
-            <input placeholder="Enter your email address">
+            <input placeholder="Enter your email address" key="email-input">
         </div>
         <button @click="toggleLogin">ToggleLogin</button>
     </div>
